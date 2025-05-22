@@ -39,3 +39,8 @@ function eliminar(id) {
       cargarCorreo();
     });
 }
+function cargarSalida() {
+  fetch("salida.php")
+    .then((response) => response.text())
+    .then((data) => (document.querySelector("#resultado").innerHTML = data));
+}

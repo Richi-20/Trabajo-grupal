@@ -15,8 +15,7 @@
 
             <button id="entrada"><a href="javascript:cargarCorreo()">Bandeja de Entrada</a></button>
             <br><br>
-            <button id="salida">Bandeja de Salida</button>
-        </div>
+            <button id="salida"><a href="javascript:cargarSalida()">Bandeja de Salida</a></button>        </div>
         <div class="conte">
             <div class="redactar">
                 <button id="redacta">Redactar</button>
