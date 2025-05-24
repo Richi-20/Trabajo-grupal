@@ -1,6 +1,36 @@
 var modal = document.getElementById("myModal");
 var openModalBtn = document.getElementById("openModalBtn");
 var closeBtn = document.getElementsByClassName("close")[0];
+
+function cargarContenido(abrir) {
+  var contenedor;
+  contenedor = document.getElementById("contenido");
+  fetch(abrir)
+    .then((response) => response.text())
+    .then((data) => { console.log(data); });
+}
+function autenticar() {
+  var datos = new FormData(document.querySelector("#form"));
+  fetch("autenticar.php", { method: "POST", body: datos })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length === 0) {
+        document.querySelector("#titulo-modal").innerHTML = "Error";
+        document.querySelector("#contenido-modal").innerHTML = "Usuario o contraseña incorrectos";
+        document.getElementById("myModal").style.display = "block";
+        document.querySelector("#form").reset();
+      }
+      else {
+      let rol = data[0].rol;
+      if (rol == 1) {
+        window.location.href = "administrador.php"; 
+      }
+      else {
+         window.location.href = "usuario.php";
+      }
+    }
+    });
+}
 mostrar = function () {
   modal.style.display = "block";
 };
@@ -34,63 +64,25 @@ function eliminar(id) {
     .then((response) => response.text())
     .then((data) => {
       document.querySelector("#titulo-modal").innerHTML = "Mensaje"
-		  document.querySelector("#contenido-modal").innerHTML = data
+      document.querySelector("#contenido-modal").innerHTML = data
       document.getElementById("myModal").style.display = "block";
       cargarCorreo();
     });
 }
-function cargarSalida() {
-  fetch("salida.php")
+function insertar() {
+  fetch("forminsertar.php")
     .then((response) => response.text())
-    .then((data) => (document.querySelector("#resultado").innerHTML = data));
+    .then((data) => (document.querySelector("#resultado2").innerHTML = data));
 }
+function crear() {
+  var datos = new FormData(document.querySelector("#form-crear"));
 
-/////////////////// redactar correo ///////////////////
-
-function mostrarModalRedactar() {
-    const modal = document.getElementById("modalRedactar");
-    modal.style.display = "flex";
-    modal.classList.add("show");
+  fetch("create.php", { method: "POST", body: datos })
+    .then((response) => response.text())
+    .then((data) => (document.querySelector("#resultado2").innerHTML = data));
 }
-
-function cerrarModalRedactar() {
-    const modal = document.getElementById("modalRedactar");
-    modal.style.display = "none";
-    modal.classList.remove("show");
+function ver() {
+  fetch("verusuarios.php")
+    .then((response) => response.text())
+    .then((data) => (document.querySelector("#resultado2").innerHTML = data));
 }
-
-function guardarBorrador() {
-    const correo = document.getElementById("correo").value;
-    const asunto = document.getElementById("asunto").value;
-    const mensaje = document.getElementById("mensaje").value;
-    
-    // Aquí puedes implementar la lógica para guardar el borrador
-    alert("Borrador guardado");
-    cerrarModalRedactar();
-}
-
-function enviarCorreo() {
-    const correo = document.getElementById("correo").value;
-    const asunto = document.getElementById("asunto").value;
-    const mensaje = document.getElementById("mensaje").value;
-    
-    // Aquí puedes implementar la lógica para enviar el correo
-    alert("Correo enviado");
-    cerrarModalRedactar();
-}
-
-// Agregar event listeners para cerrar el modal
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("modalRedactar");
-    const closeBtn = modal.getElementsByClassName("close")[0];
-    
-    closeBtn.onclick = function() {
-        cerrarModalRedactar();
-    }
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            cerrarModalRedactar();
-        }
-    }
-});

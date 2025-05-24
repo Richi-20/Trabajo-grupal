@@ -1,62 +1,41 @@
-body {
-    padding:0;
-    margin: 0;
-}
-h2 {
-    text-align: center;
-    color: #343a40;
-    margin-bottom: 2rem;
-}
 
-.login {
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:50px;
+    background-color: #f0f0f0;
+}
+form{
+    width: 245.5px;
+}
+.login{
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:auto;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2px;
-    border-radius: 15px;
-    width: 450px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.login label {
-    display: block;
-    margin: 15px 0 8px;
-    font-weight: 600;
-    color: #2d3436;
-    font-size: 0.95rem;
-}
-
-.login input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-}
-
-.login input {
-    border-color: #007BFF;
+    text-align: center;
+    border: 2px solid black;
+     margin: 0px;
 }
 
 .login .boton {
-    width: 100%;
-    padding: 14px;
-    background-color:#007BFF;
+    background-color: green;
+     width: 100%;
     color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 1rem;
+     margin-top: 4px;
+    
 }
 
-.login .boton:hover {
-    background-color: #044285;
+input {
+    width: 243px;
+    height: 25px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 .contenedor{
     display: flex;
@@ -72,54 +51,21 @@ h2 {
     margin: 10px;
 }
 #resultado{
-    width: 950px;
+    width: 100%;
     height: 230px;
-    border: 1px solid red;
+    border: 1px solid black;
     
 }
 #redacta{
+    background-color: rgb(53, 132, 235);
     width: 150px;
     color: white;
-    padding: 10px 20px;
-    background-color: skyblue;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    border:1px solid blue;
 }
-
-#redacta:hover {
-  background-color: #218838;
-}
-
 #entrada{
-    border: 1px solid rgb(0, 81, 255);
-    width: 200px;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: 600;
+    border-color: aqua;
 }
-
-#entrada:hover {
-  background-color: rgb(106, 146, 235);
-  
-}
-
 #salida{
-    border:1px solid  rgb(221, 143, 54);
-    width: 200px;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-#salida:hover {
-  background-color: rgb(241, 189, 128);
-  
+    border-color: rgb(229, 196, 34);
 }
     
 .contenido {
@@ -130,116 +76,36 @@ h2 {
     width: 300px;
 }
  .modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-  background-color: #ffffff;
-  margin: 0 auto;
-  padding: 25px;
-  border: 1px solid #ddd;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.modal-content h2 {
-  color: #333;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #444;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 200px;
-}
-
-.botones-form {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 25px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
-}
-
-.botones-form button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.botones-form button:first-child {
-  color: white;
-}
-
-.botones-form button:last-child {
-  background-color: #007bff;
-  color: white;
-}
-
-.botones-form button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
 }
 
 .close {
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  color: #666;
-  font-size: 24px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
-
-.close:hover {
-  color: #333;
-}
-

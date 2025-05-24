@@ -1,5 +1,6 @@
 <?php session_start();
  include("conexion.php");
+ require("verificarsesion.php");
 $id=$_GET['id'];
 $sql="SELECT correo,mensaje FROM usuarios INNER JOIN correos on usuarios.id=correos.emisor_id
  where correos.id=$id";
